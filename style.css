@@ -1,0 +1,31 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+}
+main {
+  display: grid;
+  place-items: center;
+  background: rgba(128, 128, 128, 0.411);
+  height: 100%;
+}
+.form {
+  padding: 50px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  background: white;
+}
+
+.submit__btn {
+  width: 100px;
+  background: green;
+  border: 1px solid transparent;
+  padding: 5px;
+  color: white;
+}
