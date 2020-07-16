@@ -1,37 +1,22 @@
 import "./style.css";
-const name = document.querySelector("#name");
-const email = document.querySelector("#email");
-const phone = document.querySelector("#phone");
+import Form from "./src/Form";
+const name = document.querySelector("input[name=name]");
+const email = document.querySelector("input[name=email]");
+const phone = document.querySelector("input[name=phone]");
 const form = document.querySelector("form");
-class Form {
-  state = {
-    name: "",
-    email: "",
-    phone: "",
-    errors: [false, false, false],
-  };
-  handleSubmit = (e) => {
-    e.preventDefault();
-  };
-  clearForm = () =>
-    this.setState({
-      first_name: "",
-      last_name: "",
-      email: "",
-      password: "",
-      errors: [false, false, false],
-    });
-  saveToState = (e) => {
-    const state = { ...this.state, [e.target.name]: e.target.value };
-    this.state = state;
-    console.log(state, this.state);
-  };
-}
+
 
 const App = () => {
-  const form = new Form();
-  name.addEventListener("input", form.saveToState);
-  email.addEventListener("input", form.saveToState);
-  phone.addEventListener("input", form.saveToState);
+  const formHandler = new Form();
+  name.addEventListener("input", formHandler.saveToState);
+  email.addEventListener("input", formHandler.saveToState);
+  phone.addEventListener("input", formHandler.saveToState);
+  form.addEventListener("submit", formHandler.handleSubmit);
 };
-App();
+window.onload = App();
+window.onbeforeunload = ()=> {
+    name.removeEventListener('input', form.saveToState);
+    email.removeEventListener('input', form.saveToState);
+    phone.removeEventListener('input', form.saveToState);
+    form.removeEventListener("submit", formHandler.handleSubmit);
+}

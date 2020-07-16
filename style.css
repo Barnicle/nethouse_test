@@ -20,12 +20,33 @@ main {
   grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 20px;
   background: white;
-}
 
+}
+input{
+  outline: none;
+}
+input::-webkit-inner-spin-button{
+  display: none;
+}
 .submit__btn {
   width: 100px;
   background: green;
   border: 1px solid transparent;
   padding: 5px;
   color: white;
+}
+
+.invalid{
+  border: 1px solid rgba(237, 84, 84, 0.7);
+}
+.valid{
+  border: 1px solid rgba(72, 244, 72, 0.73);
+}
+
+
+.invisible{
+  display: none;
+}
+.visible{
+  display: block!important;
 }

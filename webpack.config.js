@@ -10,12 +10,10 @@ module.exports = {
     publicPath: "/",
   },
   devServer: {
-    contentBase: "./build",
+    contentBase: ["./"],
     port: 3000,
     hot: true,
-    open: true,
     clientLogLevel: "silent",
-    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
