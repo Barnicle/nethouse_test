@@ -7,9 +7,16 @@ class Form {
 	};
 	handleSubmit = (e) => {
 		e.preventDefault();
+		console.log(e)
 		const {errors} = this.state;
 		console.log(errors, 'errors');
-		if(!!errors.includes(false)) e.target.validity = false;
+		if(!!errors.includes(false)) {
+			e.target.validity = false;
+		errors.forEach((status, index) => {
+			this.changeValidityStatus(e.srcElement[index], status);
+		})
+			
+		}
 			else{
 				const {name, email, phone} = this.state;
 				console.log(name, 'name');
